@@ -4,8 +4,8 @@ from torch import LongTensor
 from Module import *
 
 class LossMSE(Module):
-	"""Class of MSE loss
-	"""
+    """Class of MSE loss
+    """
     def forward(self, x_in, target):
         self.last_input = x_in
         self.last_target = target

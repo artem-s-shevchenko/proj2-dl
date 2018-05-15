@@ -4,8 +4,8 @@ from torch import LongTensor
 from Module import *
 
 class ReLU(Module):
-	"""Class of Relu activation function
-	"""
+    """Class of Relu activation function
+    """
     def forward(self, x_in): 
         self.last_input = x_in
         #easy way to implement: just clone and zero cells where values <= 0 
