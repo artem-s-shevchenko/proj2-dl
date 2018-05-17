@@ -12,7 +12,7 @@ class SGD(Optimization):
         self.momentum_buffer = {}
     def step(self):
         for p in self.model.param():
-            if p not in self.momentum_buffer.keys():
-                self.momentum_buffer[p] = FloatTensor(p[0].size()).zero_()
-            self.momentum_buffer[p] = self.momentum_buffer[p].mul_(self.momentum).add_(self.lr*p[1])
-            p[0].sub_(self.momentum_buffer[p])
+            if p[0] not in self.momentum_buffer.keys():
+                self.momentum_buffer[p[0]] = FloatTensor(p[0].size()).zero_()
+            self.momentum_buffer[p[0]] = self.momentum_buffer[p[0]].mul_(self.momentum).add_(self.lr*p[1])
+            p[0].sub_(self.momentum_buffer[p[0]])
