@@ -5,8 +5,10 @@ class Optimization(object):
     """
 	Base class of optimization algorithm
     """
-    def step(self):
+    def step(self, *input):
         """
         Step of optimization (stub function)
+
+        :param input: possible parameters for step function
         """
         raise NonImplementedError
