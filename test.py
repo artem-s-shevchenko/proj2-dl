@@ -5,6 +5,7 @@ from LossCrossEntropy import *
 from Tanh import *
 from Sequential import *
 from SGD import *
+from initialization import *
 
 from torch import FloatTensor
 from torch import LongTensor 
@@ -104,6 +105,13 @@ model = Sequential(
         Tanh(),
         Linear(25, 2)
 )
+
+for i in range(0, len(model.param()), 2):
+    if(i != len(model.param())-2):
+        gain = calculate_gain("tanh")
+    else:
+        gain = 1
+    xavier_init(model.param()[i][0], model.param()[i+1][0], 'normal', gain)
 
 #train network
 train_model(model, train_input, train_target)

@@ -3,7 +3,6 @@ import math
 
 def scaled_init(w, b, init_type, gain=1):
     std = 1. / math.sqrt(w.size(1))
-    #print(std)
     if init_type == "normal":
         w.normal_(0, gain*std)
         b.normal_(0, gain*std)
@@ -16,7 +15,6 @@ def xavier_init(w, b, init_type, gain=1):
     fan_in = w.size(1)
     fan_out = w.size(0)
     std = math.sqrt(2.0 / (fan_in + fan_out))
-    #print(std)
     if init_type == "normal":
         w.normal_(0, gain*std)
         b.normal_(0, gain*std)
