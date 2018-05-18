@@ -8,7 +8,7 @@ class LossMSE(Module):
     Class of MSE loss module
     """
     def forward(self, x_in, target):
-    	"""
+        """
         Forward pass of module
 
         :param x_in: input tensor
@@ -19,7 +19,7 @@ class LossMSE(Module):
         self.last_target = target
         return (x_in.sub(target)).pow(2).mean()
     def backward(self):
-    	"""
+        """
         Backward pass of module
 
         :return:  tensor containing the gradient of the loss wrt the input
