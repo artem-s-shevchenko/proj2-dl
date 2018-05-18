@@ -21,6 +21,6 @@ class Tanh(Module):
         Backward pass of module
 
         :param dl_dx_out: tensor containing the gradient of the loss with respect to the module’s output
-        :return:  tensor containing the gradient of the loss wrt the module’s input
+        :return: tensor containing the gradient of the loss wrt the module’s input
         """
         return (1-self.last_input.tanh().pow(2))*dl_dx_out

@@ -22,6 +22,6 @@ class LossMSE(Module):
         """
         Backward pass of module
 
-        :return:  tensor containing the gradient of the loss wrt the input
+        :return: tensor containing the gradient of the loss wrt the input
         """
         return 2*(self.last_input-self.last_target)/(self.last_target.size()[0]*self.last_target.size()[1])

@@ -3,7 +3,7 @@ from torch import LongTensor
 
 from Optimization import *
 
-class SGD(Optimization):
+class Momentum(Optimization):
     def __init__(self, model, lr, momentum=0):
         """
         SGD optimization algorithm with momentum
@@ -12,7 +12,7 @@ class SGD(Optimization):
         :param lr: learning rate
         :param momentum: momentum coefficient
         """
-        super(SGD, self).__init__()
+        super(Momentum, self).__init__()
         self.model = model
         self.lr = lr
         self.momentum = momentum

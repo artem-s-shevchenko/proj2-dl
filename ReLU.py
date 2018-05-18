@@ -24,7 +24,7 @@ class ReLU(Module):
         Backward pass of module
 
         :param dl_dx_out: tensor containing the gradient of the loss with respect to the module’s output
-        :return:  tensor containing the gradient of the loss wrt the module’s input
+        :return: tensor containing the gradient of the loss wrt the module’s input
         """
     	#since derivative consists of 0 and 1 and then we multiply it by dl_dx_out, it
     	#makes sense just to clone dl_dx_out and to zero cells where values of input were <= 0 

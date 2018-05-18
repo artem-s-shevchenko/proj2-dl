@@ -24,7 +24,7 @@ class LossCrossEntropy(Module):
         """
         Backward pass of module
 
-        :return:  tensor containing the gradient of the loss wrt the input
+        :return: tensor containing the gradient of the loss wrt the input
         """
         temp1 = self.last_input.exp().sum(1).view(-1,1)
         temp2 = -1*self.last_input.exp()/temp1

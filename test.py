@@ -4,7 +4,7 @@ from LossMSE import *
 from LossCrossEntropy import *
 from Tanh import *
 from Sequential import *
-from SGD import *
+from Momentum import *
 from initialization import *
 
 from torch import FloatTensor
@@ -47,8 +47,8 @@ def train_model(model, train_input, train_target):
     criterion = LossMSE()
     #criterion = LossCrossEntropy()
     nb_epochs = 250
-    lr = 1e-1
-    optim = SGD(model, lr)
+    lr = 1e-2
+    optim = Momentum(model, lr, 0.9)
 
     for e in range(0, nb_epochs):
         for b in range(0, train_input.size(0), mini_batch_size):
@@ -106,7 +106,9 @@ model = Sequential(
         Linear(25, 2)
 )
 
+#use initialization
 for i in range(0, len(model.param()), 2):
+    #because there is no activation function after last layer
     if(i != len(model.param())-2):
         gain = calculate_gain("tanh")
     else:
